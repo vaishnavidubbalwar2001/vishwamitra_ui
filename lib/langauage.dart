@@ -4,6 +4,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vishwamitra_uidesign/createProfile.dart';
 
 // class LanguageSelectionPage extends StatefulWidget {
 //   const LanguageSelectionPage({super.key});
@@ -387,13 +389,14 @@ List<Map<String, String>> languages = [
                 CupertinoDialogAction(
                   child: Text('OK'),
                   onPressed: () {
-                    Navigator.of(context).pop();
+                     Get.to(() =>  CreateProfile());
                   },
                 ),
               ],
             );
           },
         );
+         Get.to(() =>  CreateProfile());
                       }
                     : null,
               ),
