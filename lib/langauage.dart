@@ -377,25 +377,25 @@ List<Map<String, String>> languages = [
                color: _selectedLanguageIndex != -1 ? continuebuttonBlue : unselectcontinuebuttonBlue,
                 onPressed: _selectedLanguageIndex != -1
                     ? () {
-                       showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            // Fetch the selected language's name
-            String selectedLanguageName = languages[_selectedLanguageIndex]['name']!;
-            return CupertinoAlertDialog(
-              title: Text('Language Selected'),
-              content: Text('You have selected $selectedLanguageName.'),
-              actions: <Widget>[
-                CupertinoDialogAction(
-                  child: Text('OK'),
-                  onPressed: () {
-                     Get.to(() =>  CreateProfile());
-                  },
-                ),
-              ],
-            );
-          },
-        );
+        //                showDialog(
+        //   context: context,
+        //   builder: (BuildContext context) {
+        //     // Fetch the selected language's name
+        //     String selectedLanguageName = languages[_selectedLanguageIndex]['name']!;
+        //     return CupertinoAlertDialog(
+        //       title: Text('Language Selected'),
+        //       content: Text('You have selected $selectedLanguageName.'),
+        //       actions: <Widget>[
+        //         CupertinoDialogAction(
+        //           child: Text('OK'),
+        //           onPressed: () {
+        //              Get.to(() =>  CreateProfile());
+        //           },
+        //         ),
+        //       ],
+        //     );
+        //   },
+        // );
          Get.to(() =>  CreateProfile());
                       }
                     : null,

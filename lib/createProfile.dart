@@ -32,9 +32,9 @@ final _formKey = GlobalKey<FormState>();
   void  submit() async{
     if (_formKey.currentState!.validate()) {
                   // If the form is valid, display a Snackbar or navigate to the next page
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Processing Data')),
-                  );
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   SnackBar(content: Text('Processing Data')),
+                  // );
                    Get.to(() =>  deatilsPage());
                   // Navigate to the next page or perform the submission logic
                 }
