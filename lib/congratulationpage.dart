@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vishwamitra_uidesign/firstScreen.dart';
+import 'package:vishwamitra_uidesign/homeScreen.dart';
 
 class Congratulation extends StatefulWidget {
 
@@ -68,6 +71,7 @@ class _MyWidgetState extends State<Congratulation> {
           color: Colors.blue,
           child: Text('Apply Now'),
           onPressed: () {
+            Get.offAll(HomePage());
             
           },
         ),

@@ -545,6 +545,9 @@ class _MyWidgetState extends State<deatilsPage> {
                         ),
                       ),
                     ],
+
+
+                  
                     selectedvolunterType.isNotEmpty
                                                       ?  Column(
                                                   // mainAxisAlignment: MainAxisAlignment.start,
@@ -555,7 +558,7 @@ class _MyWidgetState extends State<deatilsPage> {
                                 padding: EdgeInsets.symmetric(horizontal: 10),
                                 margin: EdgeInsets.only(top: 10),
                                 decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                   color: Color(0xFF005FA4),  
                                   borderRadius: BorderRadius.circular(100),
                                 ),
                                 child: Row(
