@@ -1,9 +1,6 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
 import 'package:vishwamitra_uidesign/createProfile.dart';
 import 'package:vishwamitra_uidesign/detailsPage.dart';
 import 'package:vishwamitra_uidesign/firstScreen.dart';
@@ -18,16 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-          home: LanguageSelection(),
-        // home: SelectableContainerWidget(),
-              // home: deatilsPage(),
- 
-  //  home:  SearchableDropdown(),
-//  home: LanguageSelection(),
- 
+             home: deatilsPage(), 
     );
   }
 }
+
 
 
 

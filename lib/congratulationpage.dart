@@ -17,7 +17,6 @@ class _MyWidgetState extends State<Congratulation> {
       appBar: AppBar(),
       body:Column(
         children: [
-
          Row(
           mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -31,8 +30,6 @@ class _MyWidgetState extends State<Congratulation> {
           color: Colors.yellow,
           icon: Icon(Icons.star,)),
         Text("Congratulations",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
-
-
         IconButton(
           onPressed: (){
 
@@ -45,14 +42,21 @@ class _MyWidgetState extends State<Congratulation> {
 
 
     SizedBox(
-
       height: 23,
     ),
 
 
 
     Text("Your profile is being shared",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-    Text("with top HRs/Admin",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+    Text("with top HRs/Admin",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+
+ SizedBox(
+      height: 160,
+    ),
+
+
+     Text("Meanwhile, start applying to",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+    Text("volunteer services",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),)
         
         ],
 

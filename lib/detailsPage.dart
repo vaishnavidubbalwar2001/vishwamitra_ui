@@ -9,26 +9,26 @@ class deatilsPage extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<deatilsPage> {
-// Define a FocusNode for the TextField
-  FocusNode searchFocusNode = FocusNode();
-// Define a boolean state to control the visibility of the list
-  bool showList = false;
 
-  bool _isSelected1 = false; // State for the first checkbox
+
+
+  bool _isSelected1 = false; 
   bool _isSelected2 = false;
-
-  bool _isSelected3 = false; // State for the first checkbox
+  bool _isSelected3 = false; 
   bool _isSelected4 = false;
-
-  bool _isSelected5 = false; // State for the first checkbox
+  bool _isSelected5 = false;
   bool _isSelected6 = false;
-
   bool _isSelected7 = false;
-
-  bool _isSelected8 = false; // State for the first checkbox
+  bool _isSelected8 = false; 
   bool _isSelected9 = false;
-
   List<bool> isSelected = [false, false, false, false, false, false];
+
+  String selectionMessage = '';
+    String selectionMessage1 = '';
+  String selectionMessage2 = '';
+  String selectionMessage3 = '';
+  String selectionMessage4 = '';
+  String selectionMessage5 = '';
   // bool isSelected = false;
 
   List<String> volunteerTypes = [
@@ -58,11 +58,11 @@ class _MyWidgetState extends State<deatilsPage> {
   String filterAdress = "";
   String filtervolunterType = "";
 
-  FocusNode focusNode = FocusNode(); // Added for managing TextField focus
+  FocusNode focusNode = FocusNode(); 
   bool isListVisible = false;
-
+ FocusNode searchFocusNode = FocusNode();
   FocusNode focusvolunterType =
-      FocusNode(); // Added for managing TextField focus
+      FocusNode();
   bool isListVisibleVolunterType = false;
 
   @override
@@ -72,32 +72,17 @@ class _MyWidgetState extends State<deatilsPage> {
     focusNode.addListener(() {
       if (focusNode.hasFocus) {
         setState(() {
-          isListVisible = true; // Show the list when TextField is focused
+          isListVisible = true; 
         });
       } else {
         setState(() {
           isListVisible = false;
-          // Hide the list when TextField loses focus
+         
         });
       }
     });
-
-    // focusvolunterType.addListener(() {
-    //   if (focusvolunterType.hasFocus) {
-    //     setState(() {
-    //       isListVisibleVolunterType =
-    //           true; // Show the list when TextField is focused
-    //     });
-    //   } else {
-    //     setState(() {
-    //       isListVisibleVolunterType =
-    //           false; // Hide the list when TextField loses focus
-    //     });
-    //   }
-    // });
-
       focusvolunterType.addListener(() {
-      // Only change the state if the TextField is not being interacted with after focus
+    
       if (!textFieldTapped) {
         if (focusvolunterType.hasFocus) {
           setState(() {
@@ -116,7 +101,7 @@ class _MyWidgetState extends State<deatilsPage> {
   void dispose() {
     focusNode.dispose();
     focusvolunterType
-        .dispose(); // Clean up the focus node when the Form is disposed.
+        .dispose(); 
     super.dispose();
   }
 
@@ -226,7 +211,7 @@ class _MyWidgetState extends State<deatilsPage> {
                         "This will help us to find the right volunteer service for you",
                         style: TextStyle(
                           fontSize: 14,
-                          color: Color(0xFF848383),
+                           color: Color(0xFF848383),
                           fontWeight: FontWeight.normal,
                         )),
                     SizedBox(
@@ -235,6 +220,13 @@ class _MyWidgetState extends State<deatilsPage> {
                     Text('Preferred employment type ',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
+                             SizedBox(height: 4),
+                              if (selectionMessage1.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(selectionMessage1, style: TextStyle(color: Colors.red)),
+              ),
+           
                     SizedBox(
                       height: 4,
                     ),
@@ -253,6 +245,13 @@ class _MyWidgetState extends State<deatilsPage> {
                     Text('Preferred volunteer',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 4),
+                              if (selectionMessage2.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(selectionMessage2, style: TextStyle(color: Colors.red)),
+              ),
+           
                     SizedBox(
                       height: 4,
                     ),
@@ -274,6 +273,13 @@ class _MyWidgetState extends State<deatilsPage> {
                     Text('Preferred Shift',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 4),
+                              if (selectionMessage3.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(selectionMessage3, style: TextStyle(color: Colors.red)),
+              ),
+           
                     SizedBox(
                       height: 4,
                     ),
@@ -295,7 +301,7 @@ class _MyWidgetState extends State<deatilsPage> {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
                     Text(
-                        "Volunteer services are show based on your preferred city",
+                        "Volunteer services are show base4d on your preferred city",
                         style: TextStyle(
                           fontSize: 12,
                           color: Color(0xFF848383),
@@ -328,11 +334,11 @@ class _MyWidgetState extends State<deatilsPage> {
 
                     if (isListVisible) ...[
                       Container(
-                        height: 150, // Set a fixed height for the container
+                        height: 150,
                         decoration: BoxDecoration(
-                          // Add border around the container
+                         
                           border: Border.all(color: Colors.grey, width: 2.0),
-                          // borderRadius: BorderRadius.circular(5), // Optional: if you want rounded corners
+                         
                         ),
                         child: ListView.builder(
                           itemCount: filteredList.length,
@@ -345,22 +351,29 @@ class _MyWidgetState extends State<deatilsPage> {
                                   setState(() {
                                     selectedAddresses.add(filteredList[index]);
                                   });
+                                }else {
+                                     ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text("You can select only 3 options"),
+                                              duration: Duration(seconds: 2), // How long the Snackbar will be shown
+                                            ),
+                                          );
                                 }
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
-                                        16.0), // Maintain horizontal padding
-                                height: 30, // Reduced height of each list item
+                                        16.0), 
+                                height: 30, 
                                 alignment: Alignment
-                                    .centerLeft, // Align the text to the start of the container
+                                    .centerLeft, 
                                 child: Text(
                                   filteredList[index],
                                   style: TextStyle(
-                                    fontSize: 16, // Optionally adjust font size
+                                    fontSize: 16, 
                                   ),
                                   overflow: TextOverflow
-                                      .ellipsis, // Prevents long text from breaking the layout
+                                      .ellipsis, 
                                 ),
                               ),
                             );
@@ -372,42 +385,42 @@ class _MyWidgetState extends State<deatilsPage> {
                     // Display selected addresses or show hint text
                     selectedAddresses.isNotEmpty
                         ?  Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-  children: selectedAddresses.map((address) {
-    return IntrinsicWidth(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        margin: EdgeInsets.only(top: 10),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              address,
-              style: TextStyle(color: Colors.white),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.close,
-                color: Colors.white,
-              ),
-              onPressed: () {
-            
-                setState(() {
-                  selectedAddresses.remove(address);
-                });
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }).toList(),
-)
+                                                        // mainAxisAlignment: MainAxisAlignment.start,
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                children: selectedAddresses.map((address) {
+                                  return IntrinsicWidth(
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 10),
+                                      margin: EdgeInsets.only(top: 10),
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            address,
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                          IconButton(
+                                            icon: Icon(
+                                              Icons.close,
+                                              color: Colors.white,
+                                            ),
+                                            onPressed: () {
+                                          
+                                              setState(() {
+                                                selectedAddresses.remove(address);
+                                              });
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              )
 
                         : Container(),
 
@@ -415,6 +428,13 @@ class _MyWidgetState extends State<deatilsPage> {
                     Text('Suggested cities',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 4),
+                              if (selectionMessage4.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(selectionMessage4, style: TextStyle(color: Colors.red)),
+              ),
+           
                     SizedBox(
                       height: 4,
                     ),
@@ -476,11 +496,11 @@ class _MyWidgetState extends State<deatilsPage> {
 
                     if (isListVisibleVolunterType) ...[
                       Container(
-                        height: 150, // Set a fixed height for the container
+                        height: 150,
                         decoration: BoxDecoration(
-                          // Add border around the container
+                      
                           border: Border.all(color: Colors.grey, width: 2.0),
-                          // borderRadius: BorderRadius.circular(5), // Optional: if you want rounded corners
+                          
                         ),
                         child: ListView.builder(
                           itemCount: filteredvolunterTpe.length,
@@ -494,22 +514,30 @@ class _MyWidgetState extends State<deatilsPage> {
                                     selectedvolunterType
                                         .add(filteredvolunterTpe[index]);
                                   });
+                                } else {
+                                     ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text("You can select only 5 options"),
+                                              duration: Duration(seconds: 2), // How long the Snackbar will be shown
+                                            ),
+                                          );
+
                                 }
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
-                                        16.0), // Maintain horizontal padding
-                                height: 30, // Reduced height of each list item
+                                        16.0), 
+                                height: 30, 
                                 alignment: Alignment
-                                    .centerLeft, // Align the text to the start of the container
+                                    .centerLeft, 
                                 child: Text(
                                   volunteerTypes[index],
                                   style: TextStyle(
-                                    fontSize: 16, // Optionally adjust font size
+                                    fontSize: 16, 
                                   ),
                                   overflow: TextOverflow
-                                      .ellipsis, // Prevents long text from breaking the layout
+                                      .ellipsis,
                                 ),
                               ),
                             );
@@ -517,80 +545,44 @@ class _MyWidgetState extends State<deatilsPage> {
                         ),
                       ),
                     ],
-
                     selectedvolunterType.isNotEmpty
-                        // ? Column(
-                        //     children: selectedvolunterType.map((type) {
-                        //       return Container(
-                        //         padding: EdgeInsets.symmetric(horizontal: 10),
-                        //         margin: EdgeInsets.only(top: 10),
-                        //         decoration: BoxDecoration(
-                        //           color: Colors.blue,
-                        //           borderRadius: BorderRadius.circular(100),
-                        //         ),
-                        //         child: Row(
-                        //           mainAxisAlignment:
-                        //               MainAxisAlignment.spaceBetween,
-                        //           children: [
-                        //             Text(
-                        //               type,
-                        //               style: TextStyle(color: Colors.white),
-                        //             ),
-                        //             IconButton(
-                        //               icon: Icon(
-                        //                 Icons.close,
-                        //                 color: Colors.white,
-                        //               ),
-                        //               onPressed: () {
-                        //                 setState(() {
-                        //                   selectedvolunterType.remove(type);
-                        //                 });
-                        //               },
-                        //             ),
-                        //           ],
-                        //         ),
-                        //       );
-                        //     }).toList(),
-                        //   )
-
-
-                              ?  Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-  children: selectedvolunterType.map((type) {
-    return IntrinsicWidth(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        margin: EdgeInsets.only(top: 10),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              type,
-              style: TextStyle(color: Colors.white),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.close,
-                color: Colors.white,
-              ),
-              onPressed: () {
-            
-                setState(() {
-                  selectedvolunterType.remove(type);
-                });
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }).toList(),
-)
+                                                      ?  Column(
+                                                  // mainAxisAlignment: MainAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                          children: selectedvolunterType.map((type) {
+                            return IntrinsicWidth(
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      type,
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.close,
+                                        color: Colors.white,
+                                      ),
+                                      onPressed: () {
+                                    
+                                        setState(() {
+                                          selectedvolunterType.remove(type);
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        )
 
 
                         : Container(),
@@ -598,101 +590,175 @@ class _MyWidgetState extends State<deatilsPage> {
                     SizedBox(
                       height: 32,
                     ),
-                    Container(
-                      decoration: const BoxDecoration(color: Color(0xFFF4FAFE)),
-                      width: 342,
-                      height: 372,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            const Text(
-                              'Suggested volunteer types/services',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  color: Color(0xFF848383)),
-                            ),
-                            const SizedBox(
-                              height: 24,
-                            ),
-                            ListView.separated(
-                              shrinkWrap: true,
-                              itemCount: volunteerTypes.length,
-                              separatorBuilder:
-                                  (BuildContext context, int index) {
-                                return const SizedBox(height: 8);
-                              },
-                              itemBuilder: (BuildContext context, int index) {
-                                return Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isSelected[index] = !isSelected[index];
-                                      });
-                                    },
-                                    child: FittedBox(
-                                      child: Container(
-                                        height: 36,
-                                        decoration: BoxDecoration(
-                                          color: isSelected[index]
-                                              ? Colors.blue
-                                              : Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(32),
-                                          border: Border.all(
-                                            color: isSelected[index]
-                                                ? Colors.transparent
-                                                : const Color(0xFFAFADAD),
-                                          ),
-                                        ),
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Center(
-                                          child: Text(
-                                            volunteerTypes[index],
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: isSelected[index]
-                                                  ? Colors.white
-                                                  : const Color(0xFF3D3C3C),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                
+              Container(
+              decoration: const BoxDecoration(color: Color(0xFFF4FAFE)),
+              width: 342,
+              height: 372,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    const Text(
+                      'Suggested volunteer types/services',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          color: Color(0xFF848383)),
+                    ),
+                    if (selectionMessage.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          selectionMessage,
+                          style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 12,
+                          ),
+                        ),  
+                      ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      itemCount: volunteerTypes.length,
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const SizedBox(height: 8);
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+                        return Align(
+                          alignment: Alignment.centerLeft,
+                          child: GestureDetector(
+                            onTap: () {
+                              int selectedCount = isSelected.where((item) => item).length;
+                              if (isSelected[index] || selectedCount < 5) {
+                                setState(() {
+                                  isSelected[index] = !isSelected[index];
+                                  selectionMessage = '';
+                                });
+                              } else {
+                                setState(() {
+                                  selectionMessage = 'You can choose only 5 things.';
+                                });
+                              }
+                            },
+                            child: FittedBox(
+                              child: Container(
+                                height: 36,
+                                decoration: BoxDecoration(
+                                  color: isSelected[index]
+                                      ? Colors.blue
+                                      : Colors.white,
+                                  borderRadius: BorderRadius.circular(32),
+                                  border: Border.all(
+                                    color: isSelected[index]
+                                        ? Colors.transparent
+                                        : const Color(0xFFAFADAD),
+                                  ),
+                                ),
+                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                child: Center(
+                                  child: Text(
+                                    volunteerTypes[index],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: isSelected[index]
+                                          ? Colors.white
+                                          : const Color(0xFF3D3C3C),
                                     ),
                                   ),
-                                );
-                              },
+                                ),
+                              ),
                             ),
-                          ],
-                        ),
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
               ),
             ),
+            
+
+                  ],
+                ),
+              ),
+
+
+
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 25, 40, 44),
-        child: CupertinoButton(
-          color: Colors.blue,
-          child: Text('Next'),
-          onPressed: () {
-            Get.to(() => Congratulation());
-          },
-        ),
-      ),
-    );
+
+
+
+bottomNavigationBar: Padding(
+  padding: const EdgeInsets.fromLTRB(40, 25, 40, 44),
+  child: CupertinoButton(
+    color: Colors.blue,
+    child: Text('Next'),
+  onPressed: () {
+ 
+  setState(() {
+    selectionMessage1 = '';
+    selectionMessage2 = '';
+    selectionMessage3 = '';
+    selectionMessage4 = '';
+    selectionMessage = '';
+  });
+
+ 
+  if (!_isSelected1 && !_isSelected2) {
+    setState(() {
+      selectionMessage1 = 'Select at least 1 option.';
+    });
   }
+
+  
+  if (!_isSelected3 && !_isSelected4) {
+    setState(() {
+      selectionMessage2 = 'Select at least 1 option.';
+    });
+  }
+
+
+  if (!_isSelected5 && !_isSelected6) {
+    setState(() {
+      selectionMessage3 = 'Select at least 1 option.';
+    });
+  }
+
+
+  if (!_isSelected7 && !_isSelected8 && !_isSelected9) {
+    setState(() {
+      selectionMessage4 = 'Select at least 1 option.';
+    });
+  }
+
+  
+  int selectedCount = isSelected.where((item) => item).length;
+  if (selectedCount == 0) { 
+    setState(() {
+      selectionMessage = 'Select at least 1 thing.';
+    });
+  } else if (selectionMessage1.isEmpty && selectionMessage2.isEmpty && selectionMessage3.isEmpty && selectionMessage4.isEmpty) {
+    
+    Get.to(() => Congratulation());
+  }
+},
+
+  ),
+),
+
+
+              );
+            }
 
   Widget _buildCheckboxOption(
       String title, bool isSelected, ValueChanged<bool?> onChanged) {

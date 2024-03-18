@@ -31,12 +31,12 @@ final _formKey = GlobalKey<FormState>();
 
   void  submit() async{
     if (_formKey.currentState!.validate()) {
-                  // If the form is valid, display a Snackbar or navigate to the next page
+                 
                   // ScaffoldMessenger.of(context).showSnackBar(
                   //   SnackBar(content: Text('Processing Data')),
                   // );
                    Get.to(() =>  deatilsPage());
-                  // Navigate to the next page or perform the submission logic
+                 
                 }
   }
 
@@ -60,8 +60,8 @@ final _formKey = GlobalKey<FormState>();
                 Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Column(
-               mainAxisAlignment: MainAxisAlignment.center, // Adjust alignment as needed
-               crossAxisAlignment: CrossAxisAlignment.center, // Aligns children to the start, mimicking the leading position
+               mainAxisAlignment: MainAxisAlignment.center,
+               crossAxisAlignment: CrossAxisAlignment.center, 
                 children: [
           Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -169,10 +169,10 @@ final _formKey = GlobalKey<FormState>();
                       
                                         validator: (value) {
                           if (value!.isNotEmpty && !isValidEmail(value)) {
-                            // This will now only validate the email if it's provided
+                          
                             return 'Please enter a valid email';
                           }
-                          // No error if the email is not provided
+                         
                           return null;
                         }
                                       ),
@@ -185,7 +185,7 @@ final _formKey = GlobalKey<FormState>();
                     SizedBox(height: 16),
                     Text('Phone Number', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                     SizedBox(height: 4,),
-                              // Phone Number Validator (assuming it should be optional)
+                             
                     TextFormField(
                       controller: _phoneNoController,
                       keyboardType: TextInputType.phone,
