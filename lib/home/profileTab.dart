@@ -91,6 +91,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileTab extends StatefulWidget {
   @override
@@ -104,73 +106,100 @@ class _ProfileTabState extends State<ProfileTab> {
       appBar: AppBar(
         title: const Text('My Profile'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Container(
-          
-          
-           decoration: BoxDecoration(
-           
-            border: Border.all(color: Colors.black, width: 1), 
-            borderRadius: BorderRadius.circular(12), 
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                height: 180,
-                width: 125,
-                  decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(12), 
-            image: DecorationImage(
-              image: AssetImage('assets/images/123456.jpeg'),
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
-            ),
-          
-          ), 
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16,top: 20,right: 16,bottom: 76),
-                  child: CircleAvatar(
-                    // radius: 15,
-                    backgroundImage:  AssetImage('assets/images/pexels-lisa-2106037.webp'), 
-                  ),
-                ),
+      body: Column(
+        children: [
+          Padding(
+            padding:  const EdgeInsets.all(16.0),
+            child: Container(
+              
+              height: 180.h,
+                 
+               decoration: BoxDecoration(
+               
+                border: Border.all(color: Colors.black, width: 1), 
+                borderRadius: BorderRadius.circular(12), 
               ),
-        
-              Padding(
-                padding: const EdgeInsets.only(left: 16, top: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                        Row(
-                          children: [
-                            Text(
-                              'User Name',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            SizedBox(width: 16,),
-                            IconButton(onPressed:(){
-
-                            },
-                            iconSize: 20,
-                             icon: Icon(Icons.edit))
-                          ],
-                        ),
-                    Text(
-                      'Profession',
-                      style: TextStyle(fontSize: 16),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    height: 180.h,
+                    width: 125.w,
+                      decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(12), 
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/123456.jpeg'),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                ),
+              
+              ), 
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 16,top: 20,right: 16,bottom: 76),
+                      child: CircleAvatar(
+                      
+                        backgroundImage:  AssetImage('assets/images/pexels-lisa-2106037.webp'), 
+                      ),
                     ),
-                    Text('email@example.com',),
-                 Text('+123456789'),
-                 Text('Location'),
-                  ],
-                ),
+                  ),
+            
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, top: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                            Row(
+                              children: [
+                                const Text(
+                                  'User Name',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                 SizedBox(width: 10,),
+                                Icon(Icons.edit,size: 20,)
+                              ],
+                            ),
+                        const Text(
+                          'Profession',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        const Text('email@example.com',),
+                     const Text('+123456789'),
+                     const Text('Location'),
+                      ],
+                    ),
+                  ),
+                ],
               ),
+            ),
+          ),
+       
+       SizedBox(
+         height: 350.h,
+        width: 360.w,
+         child: DefaultTabController(
+      length: 2, // Number of tabs
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              SizedBox(child: Tab(text: 'Journey')), // First tab
+              Tab(text: 'About me'), // Second tab
             ],
           ),
         ),
+        body: TabBarView(
+          children: [
+            // Replace these containers with your actual tab content
+            Center(child: Text('Content of Tab 1')),
+            Center(child: Text('Content of Tab 2')),
+          ],
+        ),
+      ),
+    ),
+       )
+       
+        ],
       ),
     );
   }

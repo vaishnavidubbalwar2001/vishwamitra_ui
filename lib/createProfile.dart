@@ -17,6 +17,13 @@ final _formKey = GlobalKey<FormState>();
   TextEditingController _fullNameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _phoneNoController = TextEditingController();
+@override
+void dispose() {
+  _fullNameController.dispose();
+  _emailController.dispose();
+  _phoneNoController.dispose();
+  super.dispose();
+}
 
 
 
@@ -26,33 +33,32 @@ final _formKey = GlobalKey<FormState>();
     );
     return emailRegex.hasMatch(email);
   }
+  // void  submit() async{
+  //   if (_formKey.currentState!.validate()) {
+  //                 // ScaffoldMessenger.of(context).showSnackBar(
+  //                 //   SnackBar(content: Text('Processing Data')),
+  //                 // );
+  //                  Get.to(() =>  deatilsPage());
+  //               }
+  // }
 
 
-
-  void  submit() async{
-    if (_formKey.currentState!.validate()) {
-                 
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //   SnackBar(content: Text('Processing Data')),
-                  // );
-                   Get.to(() =>  deatilsPage());
-                 
-                }
+  void submit() async {
+  if (_formKey.currentState!.validate()) {
+    // Use Get.to() and pass username and phone number as arguments
+    Get.to(() => deatilsPage(
+          userName: _fullNameController.text,
+          phoneNumber: _phoneNoController.text,
+        ));
   }
-
-
-
-
+}
   @override
   Widget build(BuildContext context) {
     return
-     
      Scaffold(
     appBar:AppBar(
           ),
-
         body: 
-    
         SingleChildScrollView(
           child: Column(
             children: [
@@ -125,8 +131,6 @@ final _formKey = GlobalKey<FormState>();
                 ],
               ),
             ),
-          
-          
               SingleChildScrollView(
                 child: Padding(
                       padding: const EdgeInsets.only(left :16.0, top: 40, right: 16),

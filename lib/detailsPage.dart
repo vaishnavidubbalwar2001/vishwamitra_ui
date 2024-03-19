@@ -4,6 +4,15 @@ import 'package:get/get.dart';
 import 'package:vishwamitra_uidesign/congratulationpage.dart';
 
 class deatilsPage extends StatefulWidget {
+
+
+  final String userName;
+  final String phoneNumber;
+
+
+  const deatilsPage({Key? key, required this.userName, required this.phoneNumber}) : super(key: key);
+
+
   @override
   State<deatilsPage> createState() => _MyWidgetState();
 }
@@ -96,6 +105,51 @@ class _MyWidgetState extends State<deatilsPage> {
       }
     });
   }
+
+
+void showSelectionDialog(BuildContext context, String userName, String phoneNumber) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text("Your selections"),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text("Name: $userName"), 
+              Text("Phone: $phoneNumber"),
+              Text("Preferred work Type", style: TextStyle(fontWeight: FontWeight.bold)),
+              if (_isSelected1) Text("Full Time"),
+              if (_isSelected2) Text("Part Time"),
+              Text('Preferred volunteer', style: TextStyle(fontWeight: FontWeight.bold)),
+              if (_isSelected3) Text("Field Volunteer"),
+              if (_isSelected4) Text("Online Volunteer"),
+              Text('Preferred Shift', style: TextStyle(fontWeight: FontWeight.bold)),
+              if (_isSelected5) Text("Day Shift (9am - 8pm)"),
+              if (_isSelected6) Text("Night Shift (10pm - 6am)"),
+              Text('Suggested cities', style: TextStyle(fontWeight: FontWeight.bold)),
+              if (_isSelected7) Text("Koregaon Park/Pune Region, MH"),
+              if (_isSelected8) Text("Shivaji Nagar/Pune Region, MH"),
+              if (_isSelected9) Text("Mysore/Mysuru Region, KA"),
+              Text('Volunteer Types:', style: TextStyle(fontWeight: FontWeight.bold)),
+              for (int i = 0; i < isSelected.length; i++)
+                if (isSelected[i]) Text(volunteerTypes[i]),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop(); 
+              Get.to(() => Congratulation()) ;
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
 
   @override
   void dispose() {
@@ -221,12 +275,12 @@ class _MyWidgetState extends State<deatilsPage> {
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
                              SizedBox(height: 4),
-                              if (selectionMessage1.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(selectionMessage1, style: TextStyle(color: Colors.red)),
-              ),
-           
+                                      if (selectionMessage1.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(selectionMessage1, style: TextStyle(color: Colors.red)),
+                      ),
+                  
                     SizedBox(
                       height: 4,
                     ),
@@ -247,10 +301,10 @@ class _MyWidgetState extends State<deatilsPage> {
                             fontSize: 16, fontWeight: FontWeight.bold)),
                             SizedBox(height: 4),
                               if (selectionMessage2.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(selectionMessage2, style: TextStyle(color: Colors.red)),
-              ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(selectionMessage2, style: TextStyle(color: Colors.red)),
+                    ),
            
                     SizedBox(
                       height: 4,
@@ -275,10 +329,10 @@ class _MyWidgetState extends State<deatilsPage> {
                             fontSize: 16, fontWeight: FontWeight.bold)),
                             SizedBox(height: 4),
                               if (selectionMessage3.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(selectionMessage3, style: TextStyle(color: Colors.red)),
-              ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(selectionMessage3, style: TextStyle(color: Colors.red)),
+                      ),
            
                     SizedBox(
                       height: 4,
@@ -430,10 +484,10 @@ class _MyWidgetState extends State<deatilsPage> {
                             fontSize: 16, fontWeight: FontWeight.bold)),
                             SizedBox(height: 4),
                               if (selectionMessage4.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(selectionMessage4, style: TextStyle(color: Colors.red)),
-              ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(selectionMessage4, style: TextStyle(color: Colors.red)),
+                    ),
            
                     SizedBox(
                       height: 4,
@@ -590,88 +644,88 @@ class _MyWidgetState extends State<deatilsPage> {
 
                         : Container(),
 
-                    SizedBox(
-                      height: 32,
-                    ),
-                
-              Container(
-              decoration: const BoxDecoration(color: Color(0xFFF4FAFE)),
-              width: 342,
-              height: 372,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const Text(
-                      'Suggested volunteer types/services',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          color: Color(0xFF848383)),
-                    ),
-                    if (selectionMessage.isNotEmpty)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(
-                          selectionMessage,
-                          style: const TextStyle(
-                            color: Colors.red,
-                            fontSize: 12,
-                          ),
-                        ),  
-                      ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    ListView.separated(
-                      shrinkWrap: true,
-                      itemCount: volunteerTypes.length,
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const SizedBox(height: 8);
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        return Align(
-                          alignment: Alignment.centerLeft,
-                          child: GestureDetector(
-                            onTap: () {
-                              int selectedCount = isSelected.where((item) => item).length;
-                              if (isSelected[index] || selectedCount < 5) {
-                                setState(() {
-                                  isSelected[index] = !isSelected[index];
-                                  selectionMessage = '';
-                                });
-                              } else {
-                                setState(() {
-                                  selectionMessage = 'You can choose only 5 things.';
-                                });
-                              }
-                            },
-                            child: FittedBox(
-                              child: Container(
-                                height: 36,
-                                decoration: BoxDecoration(
-                                  color: isSelected[index]
-                                      ? Colors.blue
-                                      : Colors.white,
-                                  borderRadius: BorderRadius.circular(32),
-                                  border: Border.all(
-                                    color: isSelected[index]
-                                        ? Colors.transparent
-                                        : const Color(0xFFAFADAD),
-                                  ),
-                                ),
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: Text(
-                                    volunteerTypes[index],
+                                    SizedBox(
+                                      height: 32,
+                                    ),
+                                
+                              Container(
+                              decoration: const BoxDecoration(color: Color(0xFFF4FAFE)),
+                              width: 342,
+                              height: 372,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                                  const Text(
+                                    'Suggested volunteer types/services',
                                     style: TextStyle(
-                                      fontSize: 12,
-                                      color: isSelected[index]
-                                          ? Colors.white
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12,
+                                        color: Color(0xFF848383)),
+                                  ),
+                                  if (selectionMessage.isNotEmpty)
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text(
+                                        selectionMessage,
+                                        style: const TextStyle(
+                                          color: Colors.red,
+                                          fontSize: 12,
+                                        ),
+                                      ),  
+                                    ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  ListView.separated(
+                                    shrinkWrap: true,
+                                    itemCount: volunteerTypes.length,
+                                    separatorBuilder: (BuildContext context, int index) {
+                                      return const SizedBox(height: 8);
+                                    },
+                                    itemBuilder: (BuildContext context, int index) {
+                                      return Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            int selectedCount = isSelected.where((item) => item).length;
+                                            if (isSelected[index] || selectedCount < 5) {
+                                              setState(() {
+                                                isSelected[index] = !isSelected[index];
+                                                selectionMessage = '';
+                                              });
+                                            } else {
+                                              setState(() {
+                                                selectionMessage = 'You can choose only 5 things.';
+                                              });
+                                            }
+                                          },
+                                          child: FittedBox(
+                                            child: Container(
+                                              height: 36,
+                                              decoration: BoxDecoration(
+                                                color: isSelected[index]
+                                                    ? Colors.blue
+                                                    : Colors.white,
+                                                borderRadius: BorderRadius.circular(32),
+                                                border: Border.all(
+                                                  color: isSelected[index]
+                                                      ? Colors.transparent
+                                                      : const Color(0xFFAFADAD),
+                                                ),
+                                              ),
+                                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                                              child: Center(
+                                                child: Text(
+                                                  volunteerTypes[index],
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: isSelected[index]
+                                                        ? Colors.white
                                           : const Color(0xFF3D3C3C),
                                     ),
                                   ),
@@ -715,44 +769,35 @@ bottomNavigationBar: Padding(
     selectionMessage4 = '';
     selectionMessage = '';
   });
-
- 
   if (!_isSelected1 && !_isSelected2) {
     setState(() {
       selectionMessage1 = 'Select at least 1 option.';
     });
   }
-
-  
   if (!_isSelected3 && !_isSelected4) {
     setState(() {
       selectionMessage2 = 'Select at least 1 option.';
     });
   }
-
-
   if (!_isSelected5 && !_isSelected6) {
     setState(() {
       selectionMessage3 = 'Select at least 1 option.';
     });
   }
-
-
   if (!_isSelected7 && !_isSelected8 && !_isSelected9) {
     setState(() {
       selectionMessage4 = 'Select at least 1 option.';
     });
   }
-
-  
   int selectedCount = isSelected.where((item) => item).length;
   if (selectedCount == 0) { 
     setState(() {
       selectionMessage = 'Select at least 1 thing.';
     });
   } else if (selectionMessage1.isEmpty && selectionMessage2.isEmpty && selectionMessage3.isEmpty && selectionMessage4.isEmpty) {
-    
-    Get.to(() => Congratulation());
+    //  showSelectionDialog(context);
+    // Get.to(() => Congratulation());
+                showSelectionDialog(context, widget.userName, widget.phoneNumber); 
   }
 },
 
