@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LibraryTab extends StatefulWidget {
@@ -12,8 +13,14 @@ class _LibraryTabState extends State<LibraryTab> {
       appBar: AppBar(
         title: Text('Library'),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
+          CupertinoButton(
+            child: Row(
+              children: [
+                Icon(Icons.add),
+                Text('New List'),
+              ],
+            ),
+            // icon: Icon(Icons.add),
             onPressed: () {},
           ),
         ],

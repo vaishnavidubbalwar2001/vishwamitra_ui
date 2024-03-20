@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vishwamitra_uidesign/firstScreen.dart';
-import 'package:vishwamitra_uidesign/homeScreen.dart';
+import 'package:vishwamitra_uidesign/presentation/firstScreen.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/homeScreen.dart';
 
 class Congratulation extends StatefulWidget {
 

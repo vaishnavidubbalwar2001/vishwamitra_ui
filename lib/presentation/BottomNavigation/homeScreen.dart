@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vishwamitra_uidesign/home/LibraryTab.dart';
-import 'package:vishwamitra_uidesign/home/exploreTab.dart';
-import 'package:vishwamitra_uidesign/home/hometab.dart';
-import 'package:vishwamitra_uidesign/home/profileTab.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/library/LibraryTab.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Explore/exploreTab.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Home/hometab.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/profile/profileTab.dart';
 
 
 class HomePage extends StatefulWidget {

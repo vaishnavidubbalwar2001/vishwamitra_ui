@@ -68,6 +68,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
+
 
 class HomeTab extends StatefulWidget {
   @override
@@ -86,7 +89,10 @@ class _HomeTabState extends State<HomeTab> {
           actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.notifications),
-              onPressed: () {},
+              onPressed: () {
+
+                  Get.to(() => PeopleList());
+              },
             ),
           ],
           bottom: const TabBar(

@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:vishwamitra_uidesign/detailsPage.dart';
+import 'package:vishwamitra_uidesign/presentation/detailsPage.dart';
+import 'package:vishwamitra_uidesign/wigets/validation.dart';
 
 class CreateProfile extends StatefulWidget {
   @override
@@ -152,10 +153,11 @@ void dispose() {
                         hintStyle: const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                                   validator: (value) {
-                        if (value!.isEmpty ) {
-                          return 'Please enter your Name';
-                        }
-                        return null;
+                        // if (value!.isEmpty ) {
+                        //   return 'Please enter your Name';
+                        // }
+                        // return null;
+                        return Validation().name_validation(value);
                       },
                     ),
                     SizedBox(height: 16),
@@ -172,12 +174,14 @@ void dispose() {
                       ),
                       
                                         validator: (value) {
-                          if (value!.isNotEmpty && !isValidEmail(value)) {
+                          // if (value!.isNotEmpty && !isValidEmail(value)) {
                           
-                            return 'Please enter a valid email';
-                          }
+                          //   return 'Please enter a valid email';
+                          // }
                          
-                          return null;
+                          // return null;
+
+                            return Validation().emailvalidation(value);
                         }
                                       ),
                     const Row(
@@ -202,10 +206,12 @@ void dispose() {
                         counterText: "",
                       ),
                       validator: (value) {
-                        if (value!.isEmpty || value.length != 10) {
-                          return 'Please enter a valid phone number';
-                        }
-                        return null;
+                        // if (value!.isEmpty || value.length != 10) {
+                        //   return 'Please enter a valid phone number';
+                        // }
+                        // return null;
+
+                         return Validation().phoneNo_validation(value);
                       },
                     ),
                   ],

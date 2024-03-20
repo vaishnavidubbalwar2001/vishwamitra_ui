@@ -5,7 +5,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vishwamitra_uidesign/createProfile.dart';
+import 'package:vishwamitra_uidesign/presentation/createProfile.dart';
+import 'package:vishwamitra_uidesign/utils/appColor.dart';
 
 
 class LanguageSelection extends StatefulWidget {
@@ -15,14 +16,6 @@ class LanguageSelection extends StatefulWidget {
 
 class _LanguageSelectionPageState extends State<LanguageSelection> {
   int _selectedLanguageIndex = -1; 
-
-  
-
-Color myCustomBlue = Color(0xFF00406E);
-Color mybackgroundBlue = Color(0xFFE5F2FB);
-Color continuebuttonBlue = Color(0xFF1694ef);
-Color unselectcontinuebuttonBlue = Color(0xFFa2d4f9);
-Color blueBoxShadow = Color(0xFF83C4F3);
 
 
 List<Map<String, String>> languages = [
@@ -80,11 +73,11 @@ List<Map<String, String>> languages = [
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: isSelected ? blueBoxShadow : Colors.grey,
+                          color: isSelected ? app_colors.blueBoxShadow : Colors.grey,
                           width: 1,
                         ),
                         boxShadow: isSelected
-                            ? [BoxShadow(color: blueBoxShadow, spreadRadius: 1, blurRadius: 3)]
+                            ? [BoxShadow(color: app_colors.blueBoxShadow, spreadRadius: 1, blurRadius: 3)]
                             : [],
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -145,7 +138,7 @@ List<Map<String, String>> languages = [
             // margin: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 45.0 ),
             // padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
-              color: mybackgroundBlue, // Light blue background color
+              color: app_colors.mybackgroundBlue,
               // borderRadius: BorderRadius.circular(8), // Optional: rounds the corners
             ),
             child: Column(
@@ -155,24 +148,24 @@ List<Map<String, String>> languages = [
                   'please choose a language from above.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: myCustomBlue, // Text color is blue
-                    fontSize: 15, // Optional: adjust the font size
+                    color:app_colors. myCustomBlue, 
+                    fontSize: 15, 
                   ),
                 ),
                  Text(
                   'You can change language from',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: myCustomBlue, // Text color is blue
-                    fontSize: 15, // Optional: adjust the font size
+                    color: app_colors.myCustomBlue, 
+                    fontSize: 15, 
                   ),
                 ),
                  Text(
                   'profile setting later',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: myCustomBlue, // Text color is blue
-                    fontSize: 15, // Optional: adjust the font size
+                    color: app_colors.myCustomBlue, 
+                    fontSize: 15, 
                   ),
                 ),
               ],
@@ -190,7 +183,7 @@ List<Map<String, String>> languages = [
               
               child: CupertinoButton(
                 child: Text('Continue'),
-               color: _selectedLanguageIndex != -1 ? continuebuttonBlue : unselectcontinuebuttonBlue,
+               color: _selectedLanguageIndex != -1 ? app_colors.continuebuttonBlue : app_colors.unselectcontinuebuttonBlue,
                 onPressed: _selectedLanguageIndex != -1
                     ? () {
         //                showDialog(
