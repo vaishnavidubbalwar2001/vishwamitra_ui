@@ -231,39 +231,39 @@ void dispose() {
                                           setState(() {}); 
                                         },
                                       )
-                        : null, 
-                    filled: true,
-                    fillColor: Colors.blueGrey[50],
-                    border: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16,right: 16),
-              child: Row(
-  children: [
-    Container(
-      padding: EdgeInsets.all(2), // Add padding inside the container if needed
-      decoration: BoxDecoration(
-        // This is where you define the border
-        border: Border.all(
-          color: Colors.black, // Set border color
-          width: 1, // Set border width
-        ),
-        borderRadius: BorderRadius.circular(5), // Optional: if you want the border to be rounded
-      ),
-      child: Icon(
-        Icons.trending_up,
-        size: 8,
-      ),
-    ),
-    SizedBox(width: 5),
-    Text("TRENDING ON VISHWAMITRA",style: TextStyle(fontSize: 12),),
-  ],
-)
+                                          : null, 
+                                      filled: true,
+                                      fillColor: Colors.blueGrey[50],
+                                      border: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 16,right: 16),
+                                child: Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(2), // Add padding inside the container if needed
+                                    decoration: BoxDecoration(
+                                      // This is where you define the border
+                                      border: Border.all(
+                                        color: Colors.black, // Set border color
+                                        width: 1, // Set border width
+                                      ),
+                                      borderRadius: BorderRadius.circular(5), // Optional: if you want the border to be rounded
+                                    ),
+                                    child: Icon(
+                                      Icons.trending_up,
+                                      size: 8,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text("TRENDING ON VISHWAMITRA",style: TextStyle(fontSize: 12),),
+                                ],
+                              )
             ),
           Expanded(
             child:ListView.builder(
