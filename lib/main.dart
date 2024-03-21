@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:vishwamitra_uidesign/presentation/createProfile.dart';
 import 'package:vishwamitra_uidesign/presentation/detailsPage.dart';
 import 'package:vishwamitra_uidesign/presentation/firstScreen.dart';
-import 'package:vishwamitra_uidesign/presentation/BottomNavigation/homeScreen.dart';
+import 'package:vishwamitra_uidesign/presentation/BottomNavigation/navigation.dart';
 import 'package:vishwamitra_uidesign/presentation/langauage.dart';
 
 

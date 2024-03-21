@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vishwamitra_uidesign/presentation/detailsPage.dart';
-import 'package:vishwamitra_uidesign/wigets/validation.dart';
+import 'package:vishwamitra_uidesign/utils/validation.dart';
 
 class CreateProfile extends StatefulWidget {
   @override
