@@ -120,14 +120,7 @@ class _LibraryTabState extends State<LibraryTab> {
                 border: Border.all(color: app_colors.librarylistborder, width: 1), 
               color: app_colors.librarylistBackground,
               borderRadius: BorderRadius.circular(10),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.grey.withOpacity(0.5),
-              //     spreadRadius: 1,
-              //     blurRadius: 5,
-              //     offset: Offset(0, 3),
-              //   ),
-              // ],
+              
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,49 +177,30 @@ class _LibraryTabState extends State<LibraryTab> {
                     ],
                   ),
                 ),
-                // SingleChildScrollView(
-                //   scrollDirection: Axis.horizontal,
-                //   child: Row(
-                //     children: item['images']
-                //         .map<Widget>((img) => Padding(
-                //               padding: const EdgeInsets.only(top: 16),
-                //               child: Image.network(
-                //                 img,
-                //                 width: 115,
-                //                 height: 139,
-                //                 fit: BoxFit.cover,
-                                
-                //               ),
-                //             ))
-                //         .toList(),
-                //   ),
-                // ),
-
-
                 SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child: Row(
-    children: List.generate(item['images'].length, (imgIndex) {
-      var img = item['images'][imgIndex];
-      return Padding(
-        padding: const EdgeInsets.only(top: 16),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(imgIndex == 0 ? 10 : 0),
-             bottomRight: Radius.circular(imgIndex == item['images'].length - 1 ? 10 : 0),
-            // bottomRight: Radius.circular(imgIndex == 0 ? 10 : 0),
-          ),
-          child: Image.network(
-            img,
-            width: 115,
-            height: 139,
-            fit: BoxFit.cover,
-          ),
-        ),
-      );
-    }),
-  ),
-),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(item['images'].length, (imgIndex) {
+                        var img = item['images'][imgIndex];
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 16),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(imgIndex == 0 ? 10 : 0),
+                              bottomRight: Radius.circular(imgIndex == item['images'].length - 1 ? 10 : 0),
+                              // bottomRight: Radius.circular(imgIndex == 0 ? 10 : 0),
+                            ),
+                            child: Image.network(
+                              img,
+                              width: 115,
+                              height: 139,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
 
               ],
             ),
