@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
+import 'package:vishwamitra_uinewdesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
+import 'package:vishwamitra_uinewdesign/presentation/BottomNavigation/Home/HomeTabBar/newOpportunities.dart';
 
 class HomeTab extends StatefulWidget {
   @override
@@ -74,11 +75,8 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
     return TabBarView(
       controller: _tabController,
       children: <Widget>[
-        SingleChildScrollView(
-          child: Column(
-            children: [Text("Content for New Opportunities")],
-          ),
-        ),
+        newOpportunities(),
+       
         SingleChildScrollView(
           child: Column(
             children: [Text("Content for Ongoing Task")],
@@ -105,7 +103,7 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
 
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
+// import 'package:vishwamitra_uinewdesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
 
 
 // class HomeTab extends StatefulWidget {
@@ -188,7 +186,7 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
 
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
+// import 'package:vishwamitra_uinewdesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
 
 // class HomeTab extends StatefulWidget {
 //   @override
@@ -274,7 +272,7 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
 
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'package:vishwamitra_uidesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
+// import 'package:vishwamitra_uinewdesign/presentation/BottomNavigation/Home/AppBar/notification.dart';
 
 // class HomeTab extends StatefulWidget {
 //   @override

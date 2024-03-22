@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vishwamitra_uidesign/utils/appColor.dart';
+import 'package:vishwamitra_uinewdesign/utils/appColor.dart';
 
 class LibraryTab extends StatefulWidget {
   @override

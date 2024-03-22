@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "vishwamitra_uidesign" "\0"
+            VALUE "FileDescription", "vishwamitra_uinewdesign" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "vishwamitra_uidesign" "\0"
+            VALUE "InternalName", "vishwamitra_uinewdesign" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "vishwamitra_uidesign.exe" "\0"
-            VALUE "ProductName", "vishwamitra_uidesign" "\0"
+            VALUE "OriginalFilename", "vishwamitra_uinewdesign.exe" "\0"
+            VALUE "ProductName", "vishwamitra_uinewdesign" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(vishwamitra_uidesign LANGUAGES CXX)
+project(vishwamitra_uinewdesign LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "vishwamitra_uidesign")
+set(BINARY_NAME "vishwamitra_uinewdesign")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
